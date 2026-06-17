@@ -1,0 +1,19 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        l,r=0,1
+        profit=0
+        while r<len(prices):
+            if prices[l]<prices[r]:
+                profit1=prices[r]-prices[l]
+                profit=max(profit,profit1)
+            else:
+                #update left only when number is bigger than right, and then update with min  
+                l=r    
+            #always update right to see next best combination
+            r+=1    
+        return profit
+
+
+
+
+        
